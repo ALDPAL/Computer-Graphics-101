@@ -1,0 +1,14 @@
+﻿  Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25831 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Iinclude /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/glew/include" /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/glfw/include" /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/glm" /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/SOIL/src" /ZI /W3 /WX- /diagnostics:classic /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc141.pdb" /Gd /TP /errorReport:prompt src\EjemploApp.cpp
+  
+  EjemploApp.cpp
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(31): warning C4309: 'argument': truncation of constant value
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(32): warning C4309: 'argument': truncation of constant value
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(33): warning C4309: 'argument': truncation of constant value
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(38): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(44): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(104): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  MidPointLine.vcxproj -> C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\x64\Debug\MidPointLine.exe
