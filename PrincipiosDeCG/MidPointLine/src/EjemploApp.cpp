@@ -1,5 +1,7 @@
 #include "EjemploApp.h"
 
+#define PI 3.14159265
+
 EjemploApp::EjemploApp() :
 	BaseApplication(),
 centerX(WIDTH / 2),
@@ -18,7 +20,9 @@ EjemploApp::~EjemploApp()
 
 void EjemploApp::setup()
 {
-	//moveTo(20, 100);
+	//Mueve el origen de donde se comienza a dibujar:
+
+	//moveTo(20, -100);
 }
 
 void EjemploApp::update()
@@ -28,28 +32,25 @@ void EjemploApp::update()
 
 void EjemploApp::draw()
 {
-	Color azul(0, 0, 255, 255);
-	Color rojo(255, 0, 0, 255);
-	Color verde(0, 255, 0, 255);
+	//Color azul(0, 0, 255, 255);
+	//Color rojo(255, 0, 0, 255);
+	//Color verde(0, 255, 0, 255);
 
-	setColor(azul);
+	setColor(0, 0, 255, 255);
 
+	double r = 300;
 
-	float pi = 3.14159265;
-	int r = 300;
 
 	for (int deg = 0; deg < 360; ++deg)
 	{
-		int x = r * cos(deg * pi / 180);
-		int y = r * sin(deg * pi / 180);
-
-		if(deg < 45 || deg < 360 || deg < 180)
-			midPointLine(currentPositionX, currentPositionY, x, y, deg);
-		if((deg < 90 || deg < 135 || deg < 270 || deg < 315) && deg > 45)
-			midPointLine(currentPositionY, currentPositionX, y, x, deg);
-		if (deg < 225 && deg > 180)
-			midPointLine(x, y, currentPositionX, currentPositionY, deg);
+		int x = r * cos(deg * PI / 180.0);
+		int y = r * sin(deg * PI / 180.0);
+		lineTo(x, y);		
 	}
+
+	//Draws every Pixel in Black.
+
+		//clearScreen();
 
 
 	//Dibuja una X, una linea horizontal y una vertical que se intersectan en el centro de la pantalla
@@ -80,96 +81,175 @@ void EjemploApp::draw()
 	}*/
 }
 
+void EjemploApp::clearScreen()
+{
+	setColor(0,0,0,0);
+	for (int i = 0; i < WIDTH; ++i)
+	{
+		for (int j = 0; j < HEIGHT; ++j)
+		{
+			putPixel(i, j, currentColor);
+		}
+	}
+}
+
 void EjemploApp::PutPixel(const int&x, const int &y)
 {
 	putPixel(centerX + x, centerY - y, currentColor);
 }
 
-void EjemploApp::setColor(Color c)
+void EjemploApp::setColor(const char& R, const char& G, const char& B, const char& A)
 {
-	currentColor = c;
+	currentColor = Color(R, G, B, A);
 }
 
-void EjemploApp::moveTo(int x, int y)
+void EjemploApp::moveTo(const int& x,const int& y)
 {
-	centerX += x;
-	centerY -= y;
+	centerX = centerX + x;
+	centerY = centerY - y;
 }
 
-void EjemploApp::lineTo(int x, int y)
+void EjemploApp::lineTo(const int& x,const int& y)
 {
-	int rx = centerX + x;
-	int ry = centerY + y;
-
-	int rh = sqrt(pow(rx,2) + pow(ry,2));
+	midPointLine(currentPositionX, currentPositionY, x, y);
 }
 
-void EjemploApp::midPointLine(int X1, int Y1, int X2, int Y2, int deg)
+void EjemploApp::midPointLine(int X1, int Y1, int X2, int Y2)
 {	
-	int a = Y2 - Y1; //DY
-	int b = X2 - X1; //DX
+	int ang = 0.0;
+	int _x1 = 0;
+	int _y1 = 0;
+	int _x2 = 0;
+	int _y2 = 0;
+
+	ang = (atan2(Y2, X2) * (180.0 / PI));
+
+	if (ang >= 0.0)
+	{
+		if (Y2 < 0)
+			ang = 359;
+		else
+		ang = ang;
+	}
+
+	else if (ang < 0.0)
+	{
+		ang = 360.0 + ang;
+	}
+
+	if (ang >= 45 && ang < 90)
+	{
+		_x1 = Y1;
+		_y1 = X1;
+		_x2 = Y2;
+		_y2 = X2;
+	}
+
+	else if (ang >= 90 && ang < 135)
+	{
+		_x1 = Y1;
+		_y1 = -X1;
+		_x2 = Y2;
+		_y2 = -X2;
+	}
+
+	else if (ang >= 135 && ang < 180)
+	{
+		_x1 = -X1;
+		_y1 = Y1;
+		_x2 = -X2;
+		_y2 = Y2;
+	}
+
+	else if (ang >= 180 && ang <= 225)
+	{
+		_x1 = -X1;
+		_y1 = -Y1;
+		_x2 = -X2;
+		_y2 = -Y2;
+	}
+
+	else if (ang > 225 && ang <= 270)
+	{
+		_x1 = -Y1;
+		_y1 = -X1;
+		_x2 = -Y2;
+		_y2 = -X2;
+	}
+
+	else if (ang > 270 && ang <= 315)
+	{
+		_x1 = -Y1;
+		_y1 = X1;
+		_x2 = -Y2;
+		_y2 = X2;
+	}
+
+	else if (ang > 315 && ang <= 360.0)
+	{
+		_x1 = X1;
+		_y1 = -Y1;
+		_x2 = X2;
+		_y2 = -Y2;
+	}
+
+	else
+	{
+		_x1 = X1;
+		_y1 = Y1;
+		_x2 = X2;
+		_y2 = Y2;
+	}
+
+	int x = _x1;
+	int y = _y1;
+	int a = _y2 - _y1;
+	int b = _x2 - _x1;
 	int d = 2 * a - b;
 	int E = 2 * a;
 	int NE = 2 * (a - b);
-	int x = X1;
-	int y = Y1;
-	
-	if(deg <= 45 || deg <= 225)
-		PutPixel(x, y);
-
-	if(deg <= 90)
-		PutPixel(y, x);
-
-	if (deg <= 135)
-		PutPixel(-y, x);
-
-	if (deg <= 180)
-		PutPixel(-x, y);
-
-	if (deg <= 270)
-		PutPixel(-y, -x);
 
 
-	if (deg <= 270)
-		PutPixel(y, -x);
 
-	if (deg <= 360)
-		PutPixel(x, -y);
-
-	while (x <= X2)
+	while (x < _x2)
 	{
-		if (d <= 0)
+		if (ang >= 45 && ang < 90)
+			PutPixel(y, x);
+
+		else if (ang >= 90 && ang < 135)
+			PutPixel(-y, x);
+
+		else if (ang >= 135 && ang < 180)
+			PutPixel(-x, y);
+
+		else if (ang >= 180 && ang <= 225)
+			PutPixel(-x, -y);
+
+		else if (ang > 225 && ang <= 270)
+			PutPixel(-y, -x);
+
+		else if (ang > 270 && ang <= 315)
+			PutPixel(y, -x);
+
+		else if (ang > 315 && ang <= 360.0)
+			PutPixel(x, -y);
+
+		else
+			PutPixel(x, y);
+
+		if (d > 0)
 		{
-			d += E;
-			x++;
+			++y;
+			d += NE;
 		}
 
 		else
 		{
-			d += NE;
-			x++;
-			y++;
+			d += E;
 		}
-		
-		if (deg <= 45 || deg <= 225)
-			PutPixel(x, y);
 
-		if (deg <= 90)
-			PutPixel(y, x);
-
-		if (deg <= 135)
-			PutPixel(-y, x);
-
-		if (deg <= 180)
-			PutPixel(-x, y);
-		
-		if (deg <= 270)
-			PutPixel(-y, -x);
-
-		if (deg <= 270)
-			PutPixel(y, -x);
-
-		if (deg <= 360)
-			PutPixel(x, -y);
+		++x;
 	}
+
+
 }

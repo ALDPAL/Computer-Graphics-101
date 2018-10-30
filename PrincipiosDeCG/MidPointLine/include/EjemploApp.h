@@ -16,8 +16,9 @@ public:
 	virtual void update();
 	virtual void draw();
 	void PutPixel(const int& x, const int& y);
-	void setColor(Color c);
-	void moveTo(int x, int y);
-	void lineTo(int x, int y);
-	void midPointLine(int X1, int Y1, int X2, int Y2, int deg);
+	void setColor(const char& R, const char& G, const char& B, const char& A);
+	void clearScreen();
+	void moveTo(const int& x, const int& y);
+	void lineTo(const int& x, const int& y);
+	void midPointLine(int X1, int Y1, int X2, int Y2);
 };
