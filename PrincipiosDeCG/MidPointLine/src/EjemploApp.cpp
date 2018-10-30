@@ -20,9 +20,7 @@ EjemploApp::~EjemploApp()
 
 void EjemploApp::setup()
 {
-	//Mueve el origen de donde se comienza a dibujar:
 
-	//moveTo(20, -100);
 }
 
 void EjemploApp::update()
@@ -45,13 +43,19 @@ void EjemploApp::draw()
 	{
 		int x = r * cos(deg * PI / 180.0);
 		int y = r * sin(deg * PI / 180.0);
+		moveTo(0,0);
 		lineTo(x, y);		
 	}
+
+	moveTo(-384, 0);
+	lineTo(381, 0);
+
+	moveTo(0, -384);
+	lineTo(0, 384);
 
 	//Draws every Pixel in Black.
 
 		//clearScreen();
-
 
 	//Dibuja una X, una linea horizontal y una vertical que se intersectan en el centro de la pantalla
 
@@ -105,13 +109,16 @@ void EjemploApp::setColor(const char& R, const char& G, const char& B, const cha
 
 void EjemploApp::moveTo(const int& x,const int& y)
 {
-	centerX = centerX + x;
-	centerY = centerY - y;
+	currentPositionX = x;
+	currentPositionY = y;
+	/*centerX = centerX + x;
+	centerY = centerY - y;*/
 }
 
 void EjemploApp::lineTo(const int& x,const int& y)
 {
 	midPointLine(currentPositionX, currentPositionY, x, y);
+	moveTo(x, y);
 }
 
 void EjemploApp::midPointLine(int X1, int Y1, int X2, int Y2)
@@ -122,14 +129,14 @@ void EjemploApp::midPointLine(int X1, int Y1, int X2, int Y2)
 	int _x2 = 0;
 	int _y2 = 0;
 
-	ang = (atan2(Y2, X2) * (180.0 / PI));
+	ang = (atan2(Y2 - Y1, X2 - X1) * (180.0 / PI));
 
 	if (ang >= 0.0)
 	{
 		if (Y2 < 0)
 			ang = 359;
 		else
-		ang = ang;
+			ang = ang;
 	}
 
 	else if (ang < 0.0)
