@@ -27,6 +27,9 @@
     <ClInclude Include="include\EjemploApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Vec2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BaseApplication.cpp">
@@ -39,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\EjemploApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vec2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

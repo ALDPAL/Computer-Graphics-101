@@ -1,6 +1,7 @@
 #pragma once
 
 #include "BaseApplication.h"
+#include "Vec2D.h"
 
 class EjemploApp : public BaseApplication
 {
@@ -22,3 +23,4 @@ public:
 	void lineTo(const int& x, const int& y);
 	void midPointLine(int X1, int Y1, int X2, int Y2);
 };
+

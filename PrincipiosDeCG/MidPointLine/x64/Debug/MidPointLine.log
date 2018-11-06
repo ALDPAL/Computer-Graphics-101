@@ -1,13 +1,15 @@
 ﻿  Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25831 for x64
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Iinclude /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/glew/include" /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/glfw/include" /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/glm" /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/SOIL/src" /ZI /W3 /WX- /diagnostics:classic /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc141.pdb" /Gd /TP /errorReport:prompt src\EjemploApp.cpp
+  cl /c /Iinclude /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/glew/include" /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/glfw/include" /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/glm" /I"C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\../Libs/SOIL/src" /ZI /W3 /WX- /diagnostics:classic /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc141.pdb" /Gd /TP /errorReport:prompt src\EjemploApp.cpp src\Pixel.cpp
   
   EjemploApp.cpp
 c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(37): warning C4309: 'argument': truncation of constant value
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(126): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(132): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(144): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(46): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(133): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\midpointline\src\ejemploapp.cpp(137): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Pixel.cpp
   MidPointLine.vcxproj -> C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\x64\Debug\MidPointLine.exe

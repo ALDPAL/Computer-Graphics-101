@@ -36,10 +36,11 @@ void EjemploApp::draw()
 
 	setColor(0, 0, 255, 255);
 
+	//Dibuja 360 lineas en circulo usando midline
+
 	double r = 300;
 
-
-	for (int deg = 0; deg < 360; ++deg)
+	for (int deg = 0; deg <= 360; ++deg)
 	{
 		int x = r * cos(deg * PI / 180.0);
 		int y = r * sin(deg * PI / 180.0);
@@ -47,11 +48,13 @@ void EjemploApp::draw()
 		lineTo(x, y);		
 	}
 
-	moveTo(-384, 0);
+	//Dibuja linea vertical y horizontal usando midline
+
+	/*moveTo(-384, 0);
 	lineTo(381, 0);
 
 	moveTo(0, -384);
-	lineTo(0, 384);
+	lineTo(0, 384);*/
 
 	//Draws every Pixel in Black.
 
@@ -111,8 +114,6 @@ void EjemploApp::moveTo(const int& x,const int& y)
 {
 	currentPositionX = x;
 	currentPositionY = y;
-	/*centerX = centerX + x;
-	centerY = centerY - y;*/
 }
 
 void EjemploApp::lineTo(const int& x,const int& y)
@@ -123,7 +124,7 @@ void EjemploApp::lineTo(const int& x,const int& y)
 
 void EjemploApp::midPointLine(int X1, int Y1, int X2, int Y2)
 {	
-	int ang = 0.0;
+	float ang = 0.0;
 	int _x1 = 0;
 	int _y1 = 0;
 	int _x2 = 0;
@@ -131,15 +132,7 @@ void EjemploApp::midPointLine(int X1, int Y1, int X2, int Y2)
 
 	ang = (atan2(Y2 - Y1, X2 - X1) * (180.0 / PI));
 
-	if (ang >= 0.0)
-	{
-		if (Y2 < 0)
-			ang = 359;
-		else
-			ang = ang;
-	}
-
-	else if (ang < 0.0)
+	if (ang < 0.0)
 	{
 		ang = 360.0 + ang;
 	}
