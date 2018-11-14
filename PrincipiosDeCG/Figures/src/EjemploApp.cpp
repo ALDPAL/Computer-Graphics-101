@@ -23,7 +23,7 @@ EjemploApp::~EjemploApp()
 void EjemploApp::setup()
 {
 	//Genera valores aleatorios en (x, y) para cada vertice de un triangulo
-	/*
+	
 	srand(time(NULL));
 	v0.x = rand() % (WIDTH + 1) + (-(WIDTH / 2));
 	v0.y = rand() % (HEIGHT + 1) + (-(HEIGHT / 2));
@@ -32,12 +32,7 @@ void EjemploApp::setup()
 	v1.y = rand() % (HEIGHT + 1) + (-(HEIGHT / 2));
 
 	v2.x = rand() % (WIDTH + 1) + (-(WIDTH / 2));
-	v2.y = rand() % (HEIGHT + 1) + (-(HEIGHT / 2));*/
-
-	//Genera vertices para Sierpinsky Gasket (valores iniciales del triangulo y divisiones)
-
-	Vec2D a(0, 300), b(-300, -300), c(300, -300);
-	sierpinskyGasket(a, b, c, 5);
+	v2.y = rand() % (HEIGHT + 1) + (-(HEIGHT / 2));
 }
 
 void EjemploApp::update()
@@ -55,20 +50,14 @@ void EjemploApp::draw()
 
 	//Dibuja Figuras
 
-	//figures(3, 100);
-	//figures(4, 200);
-	//figures(5, 300);
+	figures(3, 100);
+	figures(4, 200);
+	figures(5, 300);
 
-	//Dibuja Triangulos con diversos angulos:
+	//Dibuja Triangulos con diversos angulos
 
-	//genTri();
+	genTri();
 
-	//Dibuja los triangulos de Sierpinsky Gasket:
-
-	for (int i = 0; i < vertices.size(); i += 3)
-	{
-		triangle(vertices[i], vertices[i + 1], vertices[i + 2]);
-	}
 }
 
 void EjemploApp::clearScreen()

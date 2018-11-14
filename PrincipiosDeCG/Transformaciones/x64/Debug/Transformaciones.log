@@ -1,0 +1,11 @@
+﻿  EjemploApp.cpp
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones\src\ejemploapp.cpp(42): warning C4309: 'argument': truncation of constant value
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones\src\ejemploapp.cpp(95): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones\src\ejemploapp.cpp(99): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones\src\ejemploapp.cpp(226): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones\src\ejemploapp.cpp(227): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones\src\ejemploapp.cpp(243): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones\src\ejemploapp.cpp(244): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones\src\ejemploapp.cpp(245): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones\src\ejemploapp.cpp(246): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+  Transformaciones.vcxproj -> C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\x64\Debug\Transformaciones.exe

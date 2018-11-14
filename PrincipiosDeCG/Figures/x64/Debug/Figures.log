@@ -1,11 +1,18 @@
 ﻿  EjemploApp.cpp
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(54): warning C4309: 'argument': truncation of constant value
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(116): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(120): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(247): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(248): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(264): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(265): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(266): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(267): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(27): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(49): warning C4309: 'argument': truncation of constant value
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(105): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(109): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(236): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(237): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(253): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(254): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(255): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\figures\src\ejemploapp.cpp(256): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
   Figures.vcxproj -> C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\x64\Debug\Figures.exe

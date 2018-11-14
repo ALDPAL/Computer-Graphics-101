@@ -1,0 +1,16 @@
+﻿  Vec2D.cpp
+  ShaderFuncs.cpp
+  Pixel.cpp
+  EjemploApp.cpp
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\sierpinsky\src\ejemploapp.cpp(42): warning C4309: 'argument': truncation of constant value
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\sierpinsky\src\ejemploapp.cpp(94): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\sierpinsky\src\ejemploapp.cpp(98): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\sierpinsky\src\ejemploapp.cpp(225): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\sierpinsky\src\ejemploapp.cpp(226): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\sierpinsky\src\ejemploapp.cpp(242): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\sierpinsky\src\ejemploapp.cpp(243): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\sierpinsky\src\ejemploapp.cpp(244): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\sierpinsky\src\ejemploapp.cpp(245): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+  BaseApplication.cpp
+  Generating Code...
+  Sierpinsky.vcxproj -> C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\x64\Debug\Sierpinsky.exe
