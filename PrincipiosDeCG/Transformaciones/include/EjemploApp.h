@@ -13,7 +13,7 @@ private:
 	int centerX, centerY;
 	int currentPositionX, currentPositionY;
 	int angle;
-	std::vector<Vec3> vertices, verticesTrans;
+	std::vector<Vec3> vertices, verticesTrans, vPuntos, vLines, vLineL, vLineS, vTriangles, vTriangleS, vTriangleF;
 	Color currentColor;
 
 public:
@@ -32,5 +32,25 @@ public:
 	void genTri();
 	void triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2);
 	void sierpinskyGasket(Vec3 a, Vec3 b, Vec3 c, int subdiv);
+
+	enum TYPE
+	{
+		POINTS,
+		LINES,
+		LINE_STRIP,
+		LINE_LOOP,
+		TRIANGLES,
+		TRIANGLE_FAN,
+		TRIANGLE_STRIP
+	};
+
+	void drawArray(const std::vector<Vec3>& v, TYPE type);
+	void drawPoints(const std::vector<Vec3>& v);
+	void drawLines(const std::vector<Vec3>& v);
+	void lineStrip(const std::vector<Vec3>& v);
+	void lineLoop(const std::vector<Vec3>& v);
+	void drawTriangles(const std::vector<Vec3>& v);
+	void triangleFan(const std::vector<Vec3>& v);
+	void triangleStrip(const std::vector<Vec3>& v);
 };
 

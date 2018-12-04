@@ -3,6 +3,7 @@
 #define PI 3.14159265
 
 Vec3 v0, v1, v2;
+float angle = 0;
 
 EjemploApp::EjemploApp() :
 	BaseApplication(),
@@ -24,42 +25,130 @@ void EjemploApp::setup()
 {
 	//Genera vertices para Sierpinsky Gasket (valores iniciales del triangulo y divisiones)
 
-	Vec3 a(0, 300, 1), b(-300, -300, 1), c(300, -300, 1);
-	sierpinskyGasket(a, b, c, 5);
+	Vec3 a(0, 200, 1), b(-200, -200, 1), c(200, -200, 1);
+	sierpinskyGasket(a, b, c, 3);
+	
+	//Vertices para primitivas
+
+	Vec3 p1(-270, 250, 1), p2(-300, 220, 1), p3(-260, 220 , 1), p4(-230, 250, 1), p5(-220, 220, 1), p6(-190, 250, 1), p7(-170, 220, 1);
+	vPuntos.push_back(p1); vPuntos.push_back(p2); vPuntos.push_back(p3); vPuntos.push_back(p4); vPuntos.push_back(p5); vPuntos.push_back(p6); vPuntos.push_back(p7);
 }
 
 void EjemploApp::update()
 {
+	//Para transformar Sierpinsky:
+
 	verticesTrans.clear();
-	Matrix3 accum;
+
+	Matrix3 accum = Matrix3::Identity();
+
+	Vec3 vector(50, 50, 1);
+	Vec3 vector0(0.5, 0.5, 1);
+	Matrix3 mRot = Matrix3::Rotation(angle);
+	Matrix3 mScale = Matrix3::Scale(vector0);
+	Matrix3 mTrans = Matrix3::Translation(vector);
+	accum = mTrans * mScale * mRot;
+	angle = angle - 2;
+
 	for (Vec3 v : vertices)
 	{
 		verticesTrans.push_back(accum * v);
 	}
 
-	//accum = Matrix3::Scale() * Matrix3::Translation() * Matrix3::Rotation();
+	//Para dibujar primitivas
+	
+	vLines.clear();
+	vLineS.clear();
+	vLineL.clear();
+	vTriangles.clear();
+	vTriangleF.clear();
+	vTriangleS.clear();
+	
+
+	Matrix3 accumL = Matrix3::Identity();
+	Matrix3 accumLS = Matrix3::Identity();
+	Matrix3 accumLL = Matrix3::Identity();
+	Matrix3 accumT = Matrix3::Identity();
+	Matrix3 accumTS = Matrix3::Identity();
+	Matrix3 accumTF = Matrix3::Identity();
+
+
+	Vec3 pVec(250, 0, 1);
+	Vec3 pVec1(0,-400, 1);
+	Vec3 pVec2(0, -200, 1);
+
+	Matrix3 pTrans = Matrix3::Translation(pVec);
+	Matrix3 pTrans1 = Matrix3::Translation(pVec1);
+	Matrix3 pTrans2 = Matrix3::Translation(pVec2);
+
+	accumL = pTrans;
+
+	for (Vec3 vL : vPuntos)
+	{
+		vLines.push_back(accumL * vL);
+	}
+
+	accumLS = pTrans * pTrans;
+
+	for (Vec3 vLS : vPuntos)
+	{
+		vLineS.push_back(accumLS * vLS);
+	}
+
+	accumLL = pTrans1;
+
+	for (Vec3 vLL : vPuntos)
+	{
+		vLineL.push_back(accumLL * vLL);
+	}
+
+	accumT = pTrans1 * pTrans;
+
+	for (Vec3 vT : vPuntos)
+	{
+		vTriangles.push_back(accumT * vT);
+	}
+
+	accumTS = pTrans1 * (pTrans * pTrans);
+
+	for (Vec3 vTS : vPuntos)
+	{
+		vTriangleS.push_back(accumTS * vTS);
+	}
+
+	accumTF = pTrans2;
+
+	for (Vec3 vTF : vPuntos)
+	{
+		vTriangleF.push_back(accumTF * vTF);
+	}
 }
 
 void EjemploApp::draw()
 {
-	//Color azul(0, 0, 255, 255);
-	//Color rojo(255, 0, 0, 255);
-	//Color verde(0, 255, 0, 255);
+	//Dibuja los triangulos de Sierpinsky Gasket:
+
+	setColor(0,0,0,0);
+	clearScreen();
 
 	setColor(0, 0, 255, 255);
 
-	//Dibuja los triangulos de Sierpinsky Gasket:
-	clearScreen();
-	for (int i = 0; i < verticesTrans.size(); i += 3)
-	{
-		triangle(verticesTrans[i], verticesTrans[i + 1], verticesTrans[i + 2]);
-	}
+	//Dibuja Sierpinsky
+	drawArray(verticesTrans, TRIANGLES);
 
+	//Dibuja Primitivas:
+
+	drawArray(vPuntos, POINTS);
+	drawArray(vLines, LINES);
+	drawArray(vLineS, LINE_STRIP);
+	drawArray(vLineL, LINE_LOOP);
+	drawArray(vTriangles, TRIANGLES);
+	drawArray(vTriangleF, TRIANGLE_FAN);
+	drawArray(vTriangleS, TRIANGLE_STRIP);
 }
 
 void EjemploApp::clearScreen()
 {
-	setColor(0,0,0,0);
 	for (int i = 0; i < WIDTH; ++i)
 	{
 		for (int j = 0; j < HEIGHT; ++j)
@@ -271,5 +360,122 @@ void EjemploApp::sierpinskyGasket(Vec3 a, Vec3 b, Vec3 c, int subdiv)
 		sierpinskyGasket(a, ab, ca, subdiv - 1);
 		sierpinskyGasket(ab, b, bc, subdiv - 1);
 		sierpinskyGasket(ca, bc, c, subdiv - 1);
+	}
+}
+
+void EjemploApp::drawArray(const std::vector<Vec3>& v, TYPE type)
+{
+	switch (type)
+	{
+	case EjemploApp::POINTS:
+		drawPoints(v);
+		break;
+	case EjemploApp::LINES:
+		drawLines(v);
+		break;
+	case EjemploApp::LINE_STRIP:
+		lineStrip(v);
+		break;
+	case EjemploApp::LINE_LOOP:
+		lineLoop(v);
+		break;
+	case EjemploApp::TRIANGLES:
+		drawTriangles(v);
+		break;
+	case EjemploApp::TRIANGLE_FAN:
+		triangleFan(v);
+		break;
+	case EjemploApp::TRIANGLE_STRIP:
+		triangleStrip(v);
+		break;
+	default:
+		break;
+	}
+}
+
+void EjemploApp::drawPoints(const std::vector<Vec3>& v)
+{
+	for (int i = 0; i < v.size(); ++i)
+	{
+		PutPixel(v[i].x, v[i].y);
+	}
+}
+
+void EjemploApp::drawLines(const std::vector<Vec3>& v)
+{
+	for (int i = 0; i < v.size() - 1; i += 2)
+	{
+		moveTo(v[i].x, v[i].y);
+		lineTo(v[i + 1].x, v[i + 1].y);
+	}
+}
+
+void EjemploApp::lineStrip(const std::vector<Vec3>& v)
+{
+	for (int i = 0; i < v.size() - 1; ++i)
+	{
+			moveTo(v[i].x, v[i].y);
+			lineTo(v[i + 1].x, v[i + 1].y);
+	}
+}
+
+void EjemploApp::lineLoop(const std::vector<Vec3>& v)
+{
+	for (int i = 0; i < v.size() - 1; ++i)
+	{
+		moveTo(v[i].x, v[i].y);
+		lineTo(v[i + 1].x, v[i + 1].y);
+	}
+		lineTo(v[0].x, v[0].y);
+}
+
+void EjemploApp::drawTriangles(const std::vector<Vec3>& v)
+{
+	for (int i = 0; i < v.size() - 1; i += 3)
+	{
+		triangle(v[i], v[i + 1], v[i + 2]);
+	}
+}
+
+void EjemploApp::triangleFan(const std::vector<Vec3>& v)
+{
+	Vec3 vOld(v[0].x, v[0].y, 1);
+	for (int i = 0; i < v.size(); i < 3 ? i += 3 : ++i)
+	{
+
+		if (i < 3)
+			triangle(v[i], v[i + 1], v[i + 2]);
+
+		else
+		{
+			moveTo(v[i - 1].x, v[i - 1].y);
+			lineTo(v[i].x, v[i].y);
+			lineTo(vOld.x, vOld.y);
+		}
+	}
+}
+
+void EjemploApp::triangleStrip(const std::vector<Vec3>& v)
+{
+	Vec3 vOld;
+
+	for (int i = 0; i < v.size(); i < 3 ? i += 3 : ++i)
+	{
+
+		if(i < 3)
+			triangle(v[i], v[i + 1], v[i + 2]);
+
+		else
+		{
+			if (i == 3)
+				vOld = v[i - 3];
+
+			else
+				vOld = v[i - 2];
+
+			moveTo(v[i - 1].x, v[i - 1].y);
+			lineTo(v[i].x, v[i].y);
+			lineTo(vOld.x, vOld.y);
+		}
 	}
 }
