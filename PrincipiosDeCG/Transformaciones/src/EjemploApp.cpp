@@ -426,6 +426,7 @@ void EjemploApp::lineLoop(const std::vector<Vec3>& v)
 		moveTo(v[i].x, v[i].y);
 		lineTo(v[i + 1].x, v[i + 1].y);
 	}
+
 		lineTo(v[0].x, v[0].y);
 }
 
@@ -440,6 +441,7 @@ void EjemploApp::drawTriangles(const std::vector<Vec3>& v)
 void EjemploApp::triangleFan(const std::vector<Vec3>& v)
 {
 	Vec3 vOld(v[0].x, v[0].y, 1);
+
 	for (int i = 0; i < v.size(); i < 3 ? i += 3 : ++i)
 	{
 

@@ -14,6 +14,9 @@ public:
 	static Matrix4 Translate(const Vec4& t);
 	static Matrix4 Scale(const Vec4& s);
 	static Matrix4 LookAt(Vec4 eye, Vec4 target, Vec4 up);
+	static Matrix4 Ortogonal(float left, float right, float top, float bottom, float near, float far);
+	static Matrix4 Perspective(float fov, float aspect, float near, float far);
+
 
 	Matrix4 operator* (const Matrix4& RH) const;
 	Vec4 operator* (const Vec4& RH) const;

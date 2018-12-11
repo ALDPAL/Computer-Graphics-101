@@ -6,12 +6,12 @@ Vec4::Vec4()
 {
 }
 
-Vec4::Vec4(const float& x, const float& y, const float& z)
+Vec4::Vec4(const float& x, const float& y, const float& z, const float& w)
 {
 	this->x = x;
 	this->y = y;
 	this->z = z;
-	w = 1.0f;
+	this->w = w;
 }
 
 
@@ -19,30 +19,24 @@ Vec4::~Vec4()
 {
 }
 
-Vec4 Vec4::normalize() {
-	Vec4 vector;
-
+void Vec4::normalize() 
+{
 	float length = sqrt(x * x + y * y + z * z);
 
 	if (length != 0) {
-		vector.x = x / length;
-		vector.y = y / length;
-		vector.z = z / length;
+		x = x / length;
+		y = y / length;
+		z = z / length;
 		w = 1.0f;
 	}
-
-	return vector;
 }
 
-Vec4 Vec4::homogenize()
-{
-	Vec4 vector;
-	vector.x = x / w;
-	vector.y = y / w;
-	vector.z = z / w;
-	vector.w = w / w;
-
-	return vector;
+void Vec4::homogenize()
+{	
+	x = x / w;
+	y = y / w;
+	z = z / w;
+	w = w / w;
 }
 
 float Vec4::dot(const Vec4& rh) {
@@ -52,7 +46,7 @@ float Vec4::dot(const Vec4& rh) {
 
 Vec4 Vec4::cross(const Vec4& lh, const Vec4& rh)
 {
-	Vec4 pC(lh.y*rh.z - lh.z * rh.y, lh.z*rh.x - lh.x * rh.z, lh.x*rh.y - rh.x*lh.y);
+	Vec4 pC(lh.y*rh.z - lh.z * rh.y, lh.z*rh.x - lh.x * rh.z, lh.x*rh.y - rh.x*lh.y, 1);
 	return pC;
 }
 
@@ -62,6 +56,7 @@ Vec4 Vec4::operator- (const Vec4& RH) const
 	result.x = x - RH.x;
 	result.y = y - RH.y;
 	result.z = z - RH.z;
+	result.w = 1;
 
 	return result;
 }

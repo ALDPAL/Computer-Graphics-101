@@ -141,4 +141,33 @@ Matrix4 Matrix4::LookAt(Vec4 eye, Vec4 target, Vec4 up)
 	t.m[0][3] = -eye.x; t.m[1][3] = -eye.y; t.m[2][3] = -eye.z;
 
 	Matrix4 resultado = r * t;
+
+	return resultado;
+}
+
+Matrix4 Matrix4::Ortogonal(float left, float right, float top, float bottom, float near, float far)
+{
+	Matrix4 Scale = Matrix4::Scale(Vec4(2.0 / (right - left), 2.0 / (top - bottom), 2.0 / (near - far), 1));
+	Matrix4 Translate = Matrix4::Translate(Vec4((left + right) / 2.0, (bottom + top) / 2.0, (far + near) / 2.0, 1));
+
+	return Translate * Scale;
+}
+
+Matrix4 Matrix4::Perspective(float fov, float aspect, float near, float far)
+{
+	float ang = fov / 2;
+	double d = cos(ang) / sin(ang);
+	double A = -((far + near) / (far - near)) ;
+	double B = -((2 * far * near) / (far - near));
+
+	Matrix4 resultado = Matrix4::Identity();
+	
+	resultado.m[0][0] = d / aspect;
+	resultado.m[1][1] = d;
+	resultado.m[2][2] = A;
+	resultado.m[2][3] = B;
+	resultado.m[3][2] = -1;
+	resultado.m[3][3] = 0;
+
+	return resultado;
 }

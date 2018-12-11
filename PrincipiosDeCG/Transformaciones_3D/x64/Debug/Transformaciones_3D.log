@@ -1,30 +1,26 @@
 ﻿  EjemploApp.cpp
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(39): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(61): warning C4309: 'argument': truncation of constant value
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(67): error C2664: 'void EjemploApp::drawArray(const std::vector<Vec3,std::allocator<_Ty>> &,EjemploApp::TYPE)': cannot convert argument 1 from 'const Vec3' to 'const std::vector<Vec3,std::allocator<_Ty>> &'
-          with
-          [
-              _Ty=Vec3
-          ]
-  c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(67): note: Reason: cannot convert from 'const Vec3' to 'const std::vector<Vec3,std::allocator<_Ty>>'
-          with
-          [
-              _Ty=Vec3
-          ]
-  c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(67): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(111): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(115): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(242): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(243): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(259): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(260): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(261): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(262): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(320): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(120): warning C4309: 'argument': truncation of constant value
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(151): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(152): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(181): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(185): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(311): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(312): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(328): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
 c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(329): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(337): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(338): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(346): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(347): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
-c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(348): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(330): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(331): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(397): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(398): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(406): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(407): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(415): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(416): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(419): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(442): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(443): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(444): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(467): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(468): warning C4244: 'argument': conversion from 'const float' to 'const int', possible loss of data
+c:\users\alex_\documents\sae\trimestre 5\computo grafico\pedro\mydir\mydir\principiosdecg\transformaciones_3d\src\ejemploapp.cpp(469): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+  Transformaciones_3D.vcxproj -> C:\Users\alex_\Documents\SAE\Trimestre 5\Computo Grafico\Pedro\myDir\myDir\PrincipiosDeCG\x64\Debug\Transformaciones_3D.exe

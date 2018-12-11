@@ -2,8 +2,7 @@
 
 #define PI 3.14159265
 
-Vec3 v0, v1, v2;
-float angle = 0;
+Vec4 v0, v1, v2;
 
 EjemploApp::EjemploApp() :
 	BaseApplication(),
@@ -23,43 +22,110 @@ EjemploApp::~EjemploApp()
 
 void EjemploApp::setup()
 {
-	//Genera vertices para Sierpinsky Gasket (valores iniciales del triangulo y divisiones)
+	//Verices para triangulo:
 
-	Vec3 a(0, 200, 1), b(-200, -200, 1), c(200, -200, 1);
-	sierpinskyGasket(a, b, c, 5);
+	/*
+	Vec4 a(0, 200, 0, 1), b(-200, -200, 0, 1), c(200, -200, 0, 1);
+	vertices.push_back(a); vertices.push_back(b); vertices.push_back(c);
+	*/
+	
+	//Vertices para cubo:
+
+	Vec4 vC0(-100, 100, 100, 1), vC1(-100, -100, 100, 1), vC2(100, -100, 100, 1), vC3(100, 100, 100, 1), vC4(-100, 100, -100, 1), vC5(-100, -100, -100, 1), vC6(100, -100, -100, 1), vC7(100, 100, -100, 1);
+	
+	//Near:
+	cubo.push_back(vC0); cubo.push_back(vC1); cubo.push_back(vC2); cubo.push_back(vC2); cubo.push_back(vC3); cubo.push_back(vC0);
+	//Far:
+	cubo.push_back(vC4); cubo.push_back(vC5); cubo.push_back(vC6); cubo.push_back(vC6); cubo.push_back(vC7); cubo.push_back(vC4);
+	//Right:
+	cubo.push_back(vC3); cubo.push_back(vC2); cubo.push_back(vC6); cubo.push_back(vC6); cubo.push_back(vC7); cubo.push_back(vC3);
+	//Left:
+	cubo.push_back(vC4); cubo.push_back(vC5); cubo.push_back(vC1); cubo.push_back(vC1); cubo.push_back(vC0); cubo.push_back(vC4);
+	//Top:
+	cubo.push_back(vC4); cubo.push_back(vC0); cubo.push_back(vC3); cubo.push_back(vC3); cubo.push_back(vC7); cubo.push_back(vC4);
+	//Bottom:
+	cubo.push_back(vC5); cubo.push_back(vC1); cubo.push_back(vC2); cubo.push_back(vC2); cubo.push_back(vC6); cubo.push_back(vC6);
+
+	//Angulos para rotar
+
+	angle = 0;
+	angle1 = 0;
 }
 
 void EjemploApp::update()
 {
 	verticesTrans.clear();
-	Matrix3 accum = Matrix3::Identity();
+	cuboT.clear();
 
-	Vec3 vector(50, 50, 1);
-	Vec3 vector0(0.5, 0.5, 1);
-	Matrix3 mRot = Matrix3::Rotation(angle);
-	Matrix3 mScale = Matrix3::Scale(vector0);
-	Matrix3 mTrans = Matrix3::Translation(vector);
-	accum = mTrans * mScale * mRot;
+	Matrix4 accum = Matrix4::Identity();
+	Matrix4 accumO = Matrix4::Identity();
+	Matrix4 accumP = Matrix4::Identity();
+
+	//Transformaciones en 3D de triangulo:
+	/*
+	Vec4 vector(0, 0, 0, 1);
+	Vec4 vector0(1, 1, 1, 1);
+	Matrix4 mRot = Matrix4::RotateX(angle);
+	Matrix4 mRot1 = Matrix4::RotateY(angle);
+	Matrix4 mRot2 = Matrix4::RotateZ(angle);
+	Matrix4 mScale = Matrix4::Scale(vector0);
+	Matrix4 mTrans = Matrix4::Translate(vector);
+	accum = mTrans * mScale * mRot * mRot1 * mRot2;
 	angle = angle - 2;
-
-	for (Vec3 v : vertices)
+	for (Vec4 v : vertices)
 	{
 		verticesTrans.push_back(accum * v);
+	}
+	*/
+
+													//Transformaciones para cubo:
+
+	//Ortogonal:
+
+	Matrix4 Orto = Matrix4::Ortogonal(-200, 200, 200, -200, 200, -200);
+	Matrix4 Camara = Matrix4::LookAt(Vec4(2, 2, 2, 1), Vec4(0, 0, 0, 1), Vec4(0, 1, 0, 1));
+	Matrix4 mRot1 = Matrix4::RotateY(angle1);
+	accumO = Camara * mRot1;
+	angle1 -= 2;
+
+	//Perspectiva:
+
+	/*
+	Vec4 vector(0, 0, 0, 1);
+	Vec4 vector0(0.5, 0.5, 0.5, 0.5);
+	Matrix4 mRot = Matrix4::RotateX(angle);
+	Matrix4 mRot1 = Matrix4::RotateY(angle1);
+	Matrix4 mScale = Matrix4::Scale(vector0);
+	Matrix4 mTrans = Matrix4::Translate(vector);
+	Matrix4 Pers = Matrix4::Perspective(0, WIDTH / HEIGHT, 100, -100);
+
+	accumP = mTrans * mScale * mRot * mRot1;
+	angle -= 2;
+	--angle1;
+	*/
+
+	for (Vec4 v : cubo)
+	{
+		cuboT.push_back(accumO * v);
 	}
 
 }
 
 void EjemploApp::draw()
 {
-	//Dibuja los triangulos de Sierpinsky Gasket:
-
-	const Vec3 d(300, 300, 1);
 
 	setColor(0,0,0,0);
 	clearScreen();
 
 	setColor(0, 0, 255, 255);
 
+	//Dibuja triangulo:
+
+	//drawArray(verticesTrans, TRIANGLES);
+
+	//Dibuja cubo:
+
+	drawArray(cuboT, TRIANGLES);
 }
 
 void EjemploApp::clearScreen()
@@ -76,6 +142,15 @@ void EjemploApp::clearScreen()
 void EjemploApp::PutPixel(const int&x, const int &y)
 {
 	putPixel(centerX + x, centerY - y, currentColor);
+}
+
+//Put Pixel Para Graficar en Universo de 3D:
+
+void EjemploApp::PutPixel(const float& x, const float& y)
+{
+	int xP = ((float)WIDTH / 2.0) * x;
+	int yP = ((float)HEIGHT / 2.0) * y;
+	PutPixel(xP , yP);
 }
 
 void EjemploApp::setColor(const char& R, const char& G, const char& B, const char& A)
@@ -229,7 +304,6 @@ void EjemploApp::midPointLine(int X1, int Y1, int X2, int Y2)
 
 void EjemploApp::figures(const int &s, const int& r)
 {
-	// s = sides, r = radius
 	int inc = 360 / s;
 	moveTo(r, 0);
 	for (int ang = inc; ang < 360; ang += inc)
@@ -249,7 +323,7 @@ void EjemploApp::genTri()
 	}
 }
 
-void EjemploApp::triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2)
+void EjemploApp::triangle(const Vec4& v0, const Vec4& v1, const Vec4& v2)
 {
 	moveTo(v0.x, v0.y);
 	lineTo(v1.x, v1.y);
@@ -257,7 +331,7 @@ void EjemploApp::triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2)
 	lineTo(v0.x, v0.y);
 }
 
-void EjemploApp::sierpinskyGasket(Vec3 a, Vec3 b, Vec3 c, int subdiv)
+void EjemploApp::sierpinskyGasket(Vec4 a, Vec4 b, Vec4 c, int subdiv)
 {
 	if (subdiv <= 0)
 	{
@@ -268,9 +342,9 @@ void EjemploApp::sierpinskyGasket(Vec3 a, Vec3 b, Vec3 c, int subdiv)
 
 	else
 	{
-		Vec3 ab(((b.x + a.x) / 2), ((b.y + a.y) / 2), 1);
-		Vec3 bc(((c.x + b.x) / 2), ((c.y + b.y) / 2), 1);
-		Vec3 ca(((a.x + c.x) / 2), ((a.y + c.y) / 2), 1);
+		Vec4 ab(((b.x + a.x) / 2), ((b.y + a.y) / 2), 0, 1);
+		Vec4 bc(((c.x + b.x) / 2), ((c.y + b.y) / 2), 0, 1);
+		Vec4 ca(((a.x + c.x) / 2), ((a.y + c.y) / 2), 0, 1);
 
 		sierpinskyGasket(a, ab, ca, subdiv - 1);
 		sierpinskyGasket(ab, b, bc, subdiv - 1);
@@ -278,7 +352,7 @@ void EjemploApp::sierpinskyGasket(Vec3 a, Vec3 b, Vec3 c, int subdiv)
 	}
 }
 
-void EjemploApp::drawArray(const std::vector<Vec3>& v, TYPE type)
+void EjemploApp::drawArray(const std::vector<Vec4>& v, TYPE type)
 {
 	switch (type)
 	{
@@ -308,7 +382,7 @@ void EjemploApp::drawArray(const std::vector<Vec3>& v, TYPE type)
 	}
 }
 
-void EjemploApp::drawPoints(const std::vector<Vec3>& v)
+void EjemploApp::drawPoints(const std::vector<Vec4>& v)
 {
 	for (int i = 0; i < v.size(); ++i)
 	{
@@ -316,45 +390,83 @@ void EjemploApp::drawPoints(const std::vector<Vec3>& v)
 	}
 }
 
-void EjemploApp::drawLines(const std::vector<Vec3>& v)
+void EjemploApp::drawLines(const std::vector<Vec4>& v)
 {
-	for (int i = 0; i < v.size(); i += 2)
+	for (int i = 0; i < v.size() - 1; i += 2)
 	{
 		moveTo(v[i].x, v[i].y);
 		lineTo(v[i + 1].x, v[i + 1].y);
 	}
 }
 
-void EjemploApp::lineStrip(const std::vector<Vec3>& v)
+void EjemploApp::lineStrip(const std::vector<Vec4>& v)
 {
-	for (int i = 0; i < v.size(); ++i)
+	for (int i = 0; i < v.size() - 1; ++i)
 	{
 		moveTo(v[i].x, v[i].y);
 		lineTo(v[i + 1].x, v[i + 1].y);
 	}
 }
 
-void EjemploApp::lineLoop(const std::vector<Vec3>& v)
+void EjemploApp::lineLoop(const std::vector<Vec4>& v)
 {
-	for (int i = 0; i < v.size(); ++i)
+	for (int i = 0; i < v.size() - 1; ++i)
 	{
 		moveTo(v[i].x, v[i].y);
 		lineTo(v[i + 1].x, v[i + 1].y);
-		lineTo(v[i].x, v[i].y);
+	}
+
+	lineTo(v[0].x, v[0].y);
+}
+
+void EjemploApp::drawTriangles(const std::vector<Vec4>& v)
+{
+	for (int i = 0; i < v.size() - 1; i += 3)
+	{
+		triangle(v[i], v[i + 1], v[i + 2]);
 	}
 }
 
-void EjemploApp::drawTriangles(const std::vector<Vec3>& v)
+void EjemploApp::triangleFan(const std::vector<Vec4>& v)
 {
+	Vec4 vOld(v[0].x, v[0].y, 0, 1);
 
+	for (int i = 0; i < v.size(); i < 3 ? i += 3 : ++i)
+	{
+
+		if (i < 3)
+			triangle(v[i], v[i + 1], v[i + 2]);
+
+		else
+		{
+			moveTo(v[i - 1].x, v[i - 1].y);
+			lineTo(v[i].x, v[i].y);
+			lineTo(vOld.x, vOld.y);
+		}
+	}
 }
 
-void EjemploApp::triangleFan(const std::vector<Vec3>& v)
+void EjemploApp::triangleStrip(const std::vector<Vec4>& v)
 {
+	Vec4 vOld;
 
-}
+	for (int i = 0; i < v.size(); i < 3 ? i += 3 : ++i)
+	{
 
-void EjemploApp::triangleStrip(const std::vector<Vec3>& v)
-{
+		if (i < 3)
+			triangle(v[i], v[i + 1], v[i + 2]);
 
+		else
+		{
+			if (i == 3)
+				vOld = v[i - 3];
+
+			else
+				vOld = v[i - 2];
+
+			moveTo(v[i - 1].x, v[i - 1].y);
+			lineTo(v[i].x, v[i].y);
+			lineTo(vOld.x, vOld.y);
+		}
+	}
 }
